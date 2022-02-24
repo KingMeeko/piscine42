@@ -1,24 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 14:46:55 by dantremb          #+#    #+#             */
+/*   Updated: 2022/02/24 15:57:35 by dantremb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_putchar(char a)
-    {
-    write(1, &a, 1);
+void	ft_putchar(char a)
+{
+	write(1, &a, 1);
 }
 
-void	ft_putnbr(int nb)
-    {
-    if(nb<0)
-        {
-        ft_putchar('-');
-        nb=nb*-1;
-    }
-    if(nb>9)
-        {
-        ft_putnbr(nb/10);
-        ft_putnbr(nb%10);
-    }
-    else
-        {
-        ft_putchar(nb+48);
-    }
+void	ft_write(int a, int b)
+	{
+	ft_putchar(a / 10 + 48);
+	ft_putchar(a % 10 + 48);
+	ft_putchar(' ');
+	ft_putchar(b / 10 + 48);
+	ft_putchar(b % 10 + 48);
+	if (a != 98)
+	{
+		write(1, ", ", 2);
+	}
+}
+
+void	ft_print_comb2(void)
+	{
+	int	un;
+	int	deux;
+
+	un = 0;
+	while (un < 99)
+	{
+		deux = un + 1;
+		while (deux <= 99)
+		{
+			ft_write(un, deux);
+			deux++;
+		}
+	un++;
+	}
 }
