@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <unistd.h>
 
-void    ft_put_char(char a)
+void    ft_putchar(char a)
         {
         write(1, &a, 1);
         }
@@ -21,10 +21,10 @@ void    ft_print_array(int *array, int max)
         int i = 0;
         while(i < max)
                     {
-                    ft_put_char(array[i] + 48);
+                    ft_putchar(array[i] + 48);
                     i++;
                     }
-        ft_put_char(',');
+        ft_putchar(',');
         }
 
 void    ft_print_combn(int max)
