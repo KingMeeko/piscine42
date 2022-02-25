@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:45:06 by dantremb          #+#    #+#             */
-/*   Updated: 2022/02/25 12:04:56 by dantremb         ###   ########.fr       */
+/*   Created: 2022/02/23 14:30:47 by dantremb          #+#    #+#             */
+/*   Updated: 2022/02/25 12:32:04 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char a)
+void	ft_putchar(char c)
 	{
-	write(1, &a, 1);
+	write(1, &c, 1);
 }
 
-void	ft_print_reverse_alphabet(void)
+void	ft_print_alphabet(void)
 	{
 	int	i;
 
-	i = 122;
-	while (i >= 97)
+	i = 97;
+	while (i <= 122)
 	{
 		ft_putchar(i);
-		i--;
+		i++;
 	}
 }
