@@ -32,15 +32,14 @@ void	ft_print_comb(void)
 	int	c;
 
 	a = 0;
-	b = 1;
-	c = 2;
-	while (a <= 9)
+
+	while (a < 10)
 	{
 	b = a + 1;
-		while (b <= 10)
+		while (b < 10)
 		{
 		c = b + 1;
-			while (c <= 9)
+			while (c < 10)
 			{
 				ft_write(a, b, c);
 			c++;
