@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strcpy(char *dest, char *src)
-{
-	int i;
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);
 
+{
+	size_t	src_len;
+	size_t	i;
+
+	src_len = 0;
 	i = 0;
-	while (src[i] != '\0')
+	while(src[src_len] != '\0')
+		src_len++;
+	if (dstsize == 0)
+		return (src_len);
+	while (src[i] != '\0' && i < (dstsize - 1))
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-int main(){
-	char c_arr[20] = "abcdefghijklmno";
-	char c_arr2[20] = "12345678910111213";
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
-	ft_strcpy(&c_arr, &c_arr2);
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
+	dst[i] = '\0';
+	return (src_len);
 }

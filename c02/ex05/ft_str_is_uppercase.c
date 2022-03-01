@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strcpy(char *dest, char *src)
+int ft_str_is_uppercase(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			i++;
+		}
+		else
+		{
+			return (0);
+		}
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-int main(){
-	char c_arr[20] = "abcdefghijklmno";
-	char c_arr2[20] = "12345678910111213";
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
-	ft_strcpy(&c_arr, &c_arr2);
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
+	return (1);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strcpy(char *dest, char *src)
+char *ft_strcapitalize(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (str[i] >= 'a' && str[i] <= 'z')
 	{
-		dest[i] = src[i];
-		i++;
+		str[i] = str[i] - 32;
 	}
-	dest[i] = '\0';
-	return (dest);
+	i++;
+	while (str[i] != '\0')
+	{
+		if ((str[i - 1]) = 32)
+		{
+			str[i] = str[i] - 32;
+			i++;
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+			i++;
+		}
+		else
+		{
+			i++;
+		}
+
+	}
+return (str);
 }
-int main(){
-	char c_arr[20] = "abcdefghijklmno";
-	char c_arr2[20] = "12345678910111213";
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
-	ft_strcpy(&c_arr, &c_arr2);
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
+int	main(void)
+{
+	char tab[50] = "sAluT dAnS ta FaceS";
+	printf("%s\n", tab);
+	ft_strcapitalize(&tab);
+	printf("%s\n", tab);
 }
