@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/27 10:27:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/03 11:57:14 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char *ft_strncat(char *dest, char *src, unsigned int nb)
 int		main(void)
 {
 	char	dest[50] = "bonjour";
-	char	*src = " les amis";
-	unsigned int	size = 10;
+	char	*src = "les amis";
+	unsigned int	size = 2;
 	printf("%s\n", ft_strncat(dest, src, size));
 }
