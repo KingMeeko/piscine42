@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/27 10:27:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/02 12:27:21 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strcpy(char *dest, char *src)
+#include <stdio.h>
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -20,15 +22,18 @@ char    *ft_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	dest[i] = src[i];
 	return (dest);
 }
-int main(){
-	char c_arr[20] = "abcdefghijklmno";
-	char c_arr2[20] = "12345678910111213";
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
-	ft_strcpy(&c_arr, &c_arr2);
-	printf("%s\n", c_arr);
-	printf("%s\n", c_arr2);
+
+int	main(void)
+{
+	char	tab1[] = "1234";
+	char	tab2[] = "abcd";
+
+	printf("tab 1 = %s\n", tab1);
+	printf("tab 2 = %s\n", tab2);
+	ft_strcpy(tab2, tab1);
+	printf("tab 1 = %s\n", tab1);
+	printf("tab 2 = %s\n", tab2);
 }
