@@ -1,18 +1,40 @@
-int
-30	STRCMP (const char *p1, const char *p2)
-31	{
-32	  const unsigned char *s1 = (const unsigned char *) p1;
-33	  const unsigned char *s2 = (const unsigned char *) p2;
-34	  unsigned char c1, c2;
-35	
-36	  do
-37	    {
-38	      c1 = (unsigned char) *s1++;
-39	      c2 = (unsigned char) *s2++;
-40	      if (c1 == '\0')
-41	        return c1 - c2;
-42	    }
-43	  while (c1 == c2);
-44	
-45	  return c1 - c2;
-46	}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
+/*   Updated: 2022/02/27 10:27:51 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	{
+		i++;
+	}
+	if(s1[i] == s2[i])
+	{
+		return 0;
+	}
+	else
+	{
+		return s1[i] - s2[i];
+	}
+}
+
+int main(void)
+{
+	printf("3333 et 3333 = %d\n", ft_strcmp("3333", "3333"));
+	printf("2222 et 1111 = %d\n", ft_strcmp("2222", "1111"));
+	printf("1111 et 2222 = %d\n", ft_strcmp("1111", "2222"));
+	return 0;
+}

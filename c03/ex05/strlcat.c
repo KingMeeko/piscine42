@@ -1,12 +1,55 @@
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size);
-unsigned int		ft_strlen(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
+/*   Updated: 2022/02/27 10:27:51 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+
+int ft_strlen(char *str)
+    {
+    int i;
+
+    i = 0;
+    while(str[i] != '\0')
+        {
+        i++;
+    }
+    return(i);
+}
+
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
+	int i;
+	int ii;
 
 	i = 0;
-	while (str[i])
+	while (dest[i] != '\0')
+	{
 		i++;
-	return (i);
+	}
+	ii = 0;
+	while (src[ii] != '\0' && ii < nb)
+	{
+		dest[i + ii] = src[ii];
+		ii++;
+	}
+	dest[i + ii] = '\0';
+	return (dest);
+}
+
+int		main(void)
+{
+	char	dest[50] = "bonjour";
+	char	*src = " les amis";
+	unsigned int	size = 10;
+	printf("%s\n", ft_strncat(dest, src, size));
 }
 
 unsigned int		ft_strlcat(char *dest, char *src, unsigned int size)

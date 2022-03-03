@@ -12,30 +12,30 @@
 
 #include <stdio.h>
 
-
-ft_strncmp	(char *s1, char *s2, unsigned int n)
+char *ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	int i;
+	int ii;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n - 1)
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
-	if(s1[i] == s2[i])
+	ii = 0;
+	while (src[ii] != '\0' && ii < nb)
 	{
-		return 0;
+		dest[i + ii] = src[ii];
+		ii++;
 	}
-	else
-	{
-		return s1[i] - s2[i];
-	}
+	dest[i + ii] = '\0';
+	return (dest);
 }
 
-int main(void)
+int		main(void)
 {
-	printf("3334 et 3333 n = 1 %d\n", ft_strncmp("3334", "3333", 1));
-	printf("2322 et 1111 n = 2 %d\n", ft_strncmp("2322", "1111", 2));
-	printf("2241 et 2252 n = 3 %d\n", ft_strncmp("2241", "22542", 3));
-	return 0;
+	char	dest[50] = "bonjour";
+	char	*src = " les amis";
+	unsigned int	size = 10;
+	printf("%s\n", ft_strncat(dest, src, size));
 }
