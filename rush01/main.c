@@ -203,10 +203,11 @@ int ft_isNumberInCol(int board[9][9], int number, int col)
   }
     return (0);
 }
-int ft_isNumberInBox(int board[9][], int number, int row, int col)
+
+int ft_isNumberInBox(int board[9][9], int number, int row, int col)
 {
   int localBoxRow = row - row % 3;
-  int localBoxCol = column - column % 3;
+  int localBoxCol = col - col % 3;
   int i = localBoxRow;
   int ii = localBoxCol;
 
@@ -214,17 +215,16 @@ int ft_isNumberInBox(int board[9][], int number, int row, int col)
   {
     while (ii < localBoxCol + 3)
     {
-      if (board[i][i] == number)
-      {
-         return (1)
-      }
-  }
-
+      if (board[i][ii] == number)
+        {
+        return (1);
         }
+    ii++;
       }
-    }
-    return false;
+  i++;
   }
+return (0);
+}
 
 int main(void)
 {
