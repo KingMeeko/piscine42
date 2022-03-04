@@ -175,6 +175,56 @@ void ft_printBoard(int board[9][9], unsigned int size)
     }
 }
 
+int ft_isNumberInRow(int board[9][9], int number, int row)
+{
+  int i;
+  
+  i = 0;
+  while (i < 9)
+  {
+      if (board[row][i] == number)
+        {
+        return (1);
+      }
+  }
+    return (0);
+}
+int ft_isNumberInCol(int board[9][9], int number, int col)
+{
+  int i;
+  
+  i = 0;
+  while (i < 9)
+  {
+      if (board[i][col] == number)
+        {
+        return (1);
+      }
+  }
+    return (0);
+}
+int ft_isNumberInBox(int board[9][], int number, int row, int col)
+{
+  int localBoxRow = row - row % 3;
+  int localBoxCol = column - column % 3;
+  int i = localBoxRow;
+  int ii = localBoxCol;
+
+  while (i < localBoxRow + 3)
+  {
+    while (ii < localBoxCol + 3)
+    {
+      if (board[i][i] == number)
+      {
+         return (1)
+      }
+  }
+
+        }
+      }
+    }
+    return false;
+  }
 
 int main(void)
 {
@@ -194,14 +244,16 @@ int main(void)
         {0, 0, 7, 0, 4, 0, 2, 0, 3}
     };
     ft_printBoard(board, grid_size);
-   /* if (solveBoard(board)) {
+   if (solveBoard(board)) {
       ft_putstr("Solved!");
     }
     else {
       ft_putstr("Impossible!");
     }
     
-    printBoard(board, grid_size);*/
+    printBoard(board, grid_size);
     return (0);
   }
+ 
+
  
