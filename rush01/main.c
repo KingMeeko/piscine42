@@ -111,4 +111,97 @@ public class SudokuSolver {
   
 }
 
+#include <unistd.h>
+void	ft_putchar(char c)
+	{
+	write(1, &c, 1);
+}
 
+void    ft_putstr(char *str)
+    {
+    int i = 0;
+    while(str[i] != '\0')
+        {
+        ft_putchar(str[i]);
+        i++;
+    }
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar('8');
+	}
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else
+	{
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar(48 + nb % 10);
+	}
+}
+
+void ft_printBoard(int board[9][9], unsigned int size)
+{
+  int row;
+  int col;
+
+  row = 0;
+  while (row < size)
+  {
+      col = 0;
+      if (row % 3 == 0 && row != 0) {
+        ft_putstr("-----------\n");
+     }
+       while (col < size)
+         {
+       if (col % 3 == 0 && col != 0)
+            {
+      ft_putstr("|");
+        }
+        ft_putnbr(board[row][col]);
+         col++;
+      }
+  row++;
+      ft_putchar('\n');
+    }
+}
+
+
+int main(void)
+{
+  unsigned int grid_size;
+
+  grid_size = 9;
+    
+  int board[9][9] = {
+        {7, 0, 2, 0, 5, 0, 6, 0, 0},
+        {0, 0, 0, 0, 0, 3, 0, 0, 0},
+        {1, 0, 0, 0, 0, 9, 5, 0, 0},
+        {8, 0, 0, 0, 0, 0, 0, 9, 0},
+        {0, 4, 3, 0, 0, 0, 7, 5, 0},
+        {0, 9, 0, 0, 0, 0, 0, 0, 8},
+        {0, 0, 9, 7, 0, 0, 0, 0, 5},
+        {0, 0, 0, 2, 0, 0, 0, 0, 0},
+        {0, 0, 7, 0, 4, 0, 2, 0, 3}
+    };
+    ft_printBoard(board, grid_size);
+   /* if (solveBoard(board)) {
+      ft_putstr("Solved!");
+    }
+    else {
+      ft_putstr("Impossible!");
+    }
+    
+    printBoard(board, grid_size);*/
+    return (0);
+  }
+ 
