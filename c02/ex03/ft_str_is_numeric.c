@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*    ft_str_is_numeric.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 14:46:55 by dantremb          #+#    #+#             */
-/*   Updated: 2022/02/25 12:30:22 by dantremb         ###   ########.fr       */
+/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
+/*   Updated: 2022/03/03 13:04:08 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char a)
+int	ft_str_is_numeric(char *str)
 {
-	write(1, &a, 1);
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			i++;
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
 
-void	ft_putnbr(int nb)
+int main()
 {
-	if (nb == -2147483648)
-	{
-		ft_putnbr(nb / 10);
-		ft_putchar('8');
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(-nb);
-	}
-	else
-	{
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar(48 + nb % 10);
-	}
-}
+		char *c;
+	
+    c[0] = '1';
+    printf("\n 1 = : %i", ft_str_is_numeric(c));
 
-int main(void)
-{
-	int a;
+    c[0] = 'q';
+    printf("\n q = %i", ft_str_is_numeric(c));
 
-	a = -2147483648;
-	ft_putnbr(a);
+    c[0] ='+';
+    printf("\n + = %i", ft_str_is_numeric(c));
+    return 0;
 }
