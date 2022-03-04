@@ -226,6 +226,20 @@ int ft_isNumberInBox(int board[9][9], int number, int row, int col)
 return (0);
 }
 
+int ft_isValidPlacement(int board[9][9], int number, int row, int col)
+{
+  if (ft_isNumberInRow(board, number, row) == 1 &&
+      ft_isNumberInCol(board, number, col) == 1 &&
+      ft_isNumberInBox(board, number, row, col) == 1)
+      {
+        return (1);
+      }
+      else
+      {
+        return (0);
+      }
+}
+
 int main(void)
 {
   unsigned int grid_size;
