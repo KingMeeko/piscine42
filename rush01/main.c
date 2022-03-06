@@ -48,7 +48,7 @@ void ft_print_board(int board[6][6])
 		while (col < 5)
 		{
 			ft_putnbr(board[row][col]);
-			ft_putchar(" ");
+			ft_putchar(' ');
 			col++;
 		}
 	row++;
@@ -99,43 +99,6 @@ int ft_in_col(int board[6][6], int number, int col)
 	return (1);
 }
 
-int ft_compare_right(int board[6][6], int row)
-{
-	  ft_putstr("gauche à droite ? : ");
-	int	i;
-	int vision;
-
-	i = 1;
-	vision = 1;
-	if (board[row][1] != 0 && board[row][2] != 0 && board[row][3] != 0 && board[row][4] != 0)
-	{
-		  ft_putstr(" toutes les valeur ");
-		while (i < 4)
-		{
-			if (board[row][i+1] > board[row][i])
-			{
-			vision++;
-			}
-			i++;
-		}
-		if (vision = board[row][0])
-		{
-			ft_putstr(" vrai \n ");
-			return (1);
-		}
-		else
-		{
-			ft_putstr(" faux ?\n ");
-			return (0);
-		}
-	}
-	else
-	{
-	ft_putstr(" skip gauche droite \n ");
-	return (1);
-	}
-}
-
 int ft_is_valid(int board[6][6], int number, int row, int col)
 {
   ft_putstr("valid placement ? ");
@@ -143,9 +106,8 @@ int ft_is_valid(int board[6][6], int number, int row, int col)
 	ft_putnbr(col);
 	int vrow = ft_in_row(board, number, row);
 	int vcol = ft_in_col(board, number, col);
-	int vright = ft_compare_right(board, row);
 
-	if ((vrow + vcol + vright) > 2)
+	if ((vrow + vcol) > 1)
 	{
 	 ft_putstr(" valid true\n");
 	 return (1);
@@ -195,12 +157,37 @@ int	ft_solve(int board[6][6])
 	}
 	return (1);
 }
+void ft_fill_unmovable(int board[6][6])
+{
+  int i = 1;
+  int ii = 1;
+  int value;
+
+  while(i < 5)
+  {
+    if(board[i][0] == 4)
+    {
+      ft_putstr(" egal a 4 \n");
+      value = 4;
+      ii = 1;
+      while (ii <= 4)
+      {
+        board[i][ii] = value;
+        value--;
+        ii++;
+      }
+    }
+   ft_putnbr(i);
+   ft_putstr(" \n");
+   i++;
+  }
+}
 
 int main(void)
 {
 	int board[6][6] = {
 	{0, 4, 3, 2, 1, 0},
-	{4, 0, 0, 0, 0, 1},
+	{4, 4, 3, 2, 1, 1},
 	{3, 0, 0, 0, 0, 2},
 	{2, 0, 0, 0, 0, 2},
 	{1, 0, 0, 0, 0, 2},
@@ -208,6 +195,8 @@ int main(void)
 	};
 
 	ft_print_board(board);
+  ft_fill_unmovable(board);
+  
 	if (ft_solve(board))
 	{
 		ft_putstr("\n Résolu !!! \n");
