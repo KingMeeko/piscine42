@@ -6,11 +6,16 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:31:34 by dantremb          #+#    #+#             */
-/*   Updated: 2022/02/25 12:57:00 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:11:12 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c)
+	{
+	write(1, &c, 1);
+}
 
 void	ft_print_numbers(void)
 {
@@ -19,7 +24,7 @@ void	ft_print_numbers(void)
 	i = 48;
 	while (i <= 57)
 	{
-		ft_put_char(i);
+		ft_putchar(i);
 		i++;
 	}
 }

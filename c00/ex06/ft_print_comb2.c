@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:31:34 by dantremb          #+#    #+#             */
-/*   Updated: 2022/02/25 12:15:12 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/02/25 13:11:07 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_write(int *a, int *b)
 	if (*a != 98)
 	{
 		ft_putchar(',');
+		ft_putchar(' ');
 	}
 }
 
