@@ -1,18 +1,22 @@
-char *ft_strdup(char *src)
-{
-	int		i;
-	int		len;
-	char	*dest;
+#include <stdlib.h>
 
-	len = 0;
-	while (src[len])
-		len++;
-	dest = (char*)malloc(sizeof(*dest) * (len + 1));
+char	*ft_strdup(char *src)
+{
+	char	*new;
+	int		i;
+	int		size;
+
+	size = 0;
+	while (src[size])
+		++size;
+	if (!(new = malloc(sizeof(char) * (size + 1))))
+		return (NULL);
 	i = 0;
-	while (i < len)
+	while (src[i])
 	{
-		dest[i] = src[i];
+		new[i] = src[i];
 		i++;
 	}
-	return (dest);
+	new[i] = '\0';
+	return (new);
 }
