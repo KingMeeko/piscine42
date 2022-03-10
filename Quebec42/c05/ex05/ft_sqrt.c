@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/08 09:35:50 by dantremb         ###   ########.fr       */
+/*   Created: 2022/03/10 15:36:59 by dantremb          #+#    #+#             */
+/*   Updated: 2022/03/10 15:38:46 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_sqrt(int nb)
 {
-	int		i;
+	int	i;
+	int	sq;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 1;
+	sq = 1;
+	if (nb == 0)
+		return (0);
+	while (i * i < nb)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
 		i++;
 	}
-	return (str);
+	if ((nb % i) == 0)
+		return (i);
+	else if (i >= 46341)
+		return (0);
+	else
+		return (0);
 }

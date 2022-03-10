@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/08 09:35:50 by dantremb         ###   ########.fr       */
+/*   Created: 2022/03/10 16:55:49 by dantremb          #+#    #+#             */
+/*   Updated: 2022/03/10 17:57:32 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+#include <stdlib.h>
+#include <stdio.h>
+
+int		*ft_range(int min, int max)
 {
-	int		i;
+	int *tab;
+	int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (min >= max)
+		return (NULL);
+	tab = (int*)malloc(sizeof(int) * (max - min));
+	while (min != max)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
+		tab[i] = min;
+		i++;
+		min++;
+	}
+	return (tab);
+}
+
+int	main(void)
+{
+	int i = 0;
+	while (i < 10)
+	{
+		printf("%i \n", ft_range(60, 60)[i]);
 		i++;
 	}
-	return (str);
 }

@@ -6,13 +6,10 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 10:37:04 by dantremb          #+#    #+#             */
-/*   Updated: 2022/03/07 14:39:30 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/08 09:49:59 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
-#include <string.h>
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	counter;

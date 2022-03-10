@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/08 09:35:50 by dantremb         ###   ########.fr       */
+/*   Created: 2022/03/10 16:30:56 by dantremb          #+#    #+#             */
+/*   Updated: 2022/03/10 16:55:41 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+#include <stdlib.h>
+
+char	*ft_strdup(char *src)
 {
 	int		i;
+	int		len;
+	char	*dest;
 
+	len = 0;
+	while (src[len])
+		len++;
+	dest = malloc(sizeof(*dest) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
 	i = 0;
-	while (str[i] != '\0')
+	while (i < len)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return (str);
+	dest[i] = '\0';
+	return (dest);
 }

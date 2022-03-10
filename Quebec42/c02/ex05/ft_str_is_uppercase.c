@@ -6,11 +6,9 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/07 11:40:39 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/08 09:35:44 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_str_is_uppercase(char *str)
 {

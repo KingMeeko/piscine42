@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/08 09:35:50 by dantremb         ###   ########.fr       */
+/*   Created: 2022/03/10 14:03:30 by dantremb          #+#    #+#             */
+/*   Updated: 2022/03/10 15:59:00 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_iterative_power(int nb, int power)
 {
-	int		i;
+	int	result;
 
-	i = 0;
-	while (str[i] != '\0')
+	result = 1;
+	if ((nb == 0 && power != 0) || power < 0)
+		return (0);
+	if ((power == 0) || ((nb < 0) && (power == 0)))
+		return (1);
+	else
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		while (power > 0)
 		{
-			str[i] = str[i] - 32;
+			result = nb * result;
+			power--;
 		}
-		i++;
+		return (result);
 	}
-	return (str);
 }

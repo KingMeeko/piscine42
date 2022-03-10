@@ -6,11 +6,9 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/07 11:40:33 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/08 09:35:30 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {

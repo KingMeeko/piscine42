@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:19:44 by dantremb          #+#    #+#             */
-/*   Updated: 2022/03/07 15:03:29 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/10 13:38:03 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi(char *str)
 		if (str[i++] == 45)
 			neg *= -1;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
 		value = (str[i++] - 48) + (value * 10);
 		if (!(str[i] >= '0' && str[i] <= '9'))

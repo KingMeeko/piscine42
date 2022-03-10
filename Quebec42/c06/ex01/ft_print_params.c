@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:51 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/08 09:35:50 by dantremb         ###   ########.fr       */
+/*   Created: 2022/03/10 16:04:44 by dantremb          #+#    #+#             */
+/*   Updated: 2022/03/10 16:16:36 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
-{
-	int		i;
+#include <unistd.h>
+
+void	ft_putchar(char c)
+		{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+	{
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			str[i] = str[i] - 32;
-		}
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (str);
+	ft_putchar('\n');
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	if (argc > 0)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			ft_putstr(argv[i]);
+			i++;
+		}
+	}
+	return (0);
 }
