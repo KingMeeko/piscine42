@@ -9,6 +9,7 @@
 /*   Updated: 2022/03/02 15:27:36 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putchar(char a)
@@ -30,10 +31,10 @@ void	ft_putnbr(int nb)
 	}
 	else
 	{
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar(48 + nb % 10);
+		if (nb > 9)
+		{
+			ft_putnbr(nb / 10);
+		}
+		ft_putchar(48 + nb % 10);
 	}
 }
