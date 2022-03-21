@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:47:17 by dantremb          #+#    #+#             */
-/*   Updated: 2022/03/19 00:48:53 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/20 23:47:03 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 	{
-	int i = 0;
-	while(str[i] != '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);
 		i++;
@@ -63,14 +65,14 @@ int	ft_atoi(char *str)
 	{
 		i++;
 	}
-	while (str[i] == 43 || str[i] == 45)
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i++] == 45)
-			neg *= -1;
+		if (str[i] == '-')
+			neg = -1;
 	}
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
+	while (str[++i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		value = (str[i++] - 48) + (value * 10);
+		value = (str[i] - 48) + (value * 10);
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (value * neg);
 	}

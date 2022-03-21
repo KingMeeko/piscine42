@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush01.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:51:44 by dantremb          #+#    #+#             */
-/*   Updated: 2022/03/21 00:32:37 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:58:44 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_solve(int **board);
+void	ft_print_board(int **board, int size);
 
 void	ft_putchar(char c)
-	{
+{
 	write(1, &c, 1);
 }
 
 void	ft_putstr(char *str)
-	{
+{
 	int	i;
 
 	i = 0;
@@ -81,79 +81,28 @@ int	ft_atoi(char *str)
 	return (0);
 }
 
-int	ft_in_row(int **board, int number, int row)
-{
-	int	i;
-
-	i = 1;
-	while (i < 5)
-	{
-		if (board[row][i] == number)
-		{
-			return (0);
-		}
-		else
-		{
-			i++;
-		}
-	}
-	return (1);
-}
-
-int	ft_in_col(int **board, int number, int col)
-{
-	int	i;
-
-	i = 1;
-	while (i < 5)
-	{
-		if (board[i][col] == number)
-		{
-			return (0);
-		}
-		else
-		{
-			i++;
-		}
-	}
-	return (1);
-}
-
-int	ft_is_valid(int **board, int number, int row, int col)
-{
-	int	vrow;
-	int	vcol;
-
-	vrow = ft_in_row(board, number, row);
-	vcol = ft_in_col(board, number, col);
-	if ((vrow + vcol) > 1)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
-}
-
 int	**ft_init_board(int size)
 {
 	int		**board;
 	int		row;
 	int		col;
-
+	
+	ft_putstr("\n malloc board \n");
+	board = malloc((size * size * sizeof(int)) + 1);
+	ft_putstr("\n malloc board done! \n");
 	row = 0;
-	board = (malloc(sizeof(int) * size * size) + 1);
-	while (row <= size)
+	while (row <= size - 1)
 	{
 		col = 0;
-		while (col <= size)
+		while (col <= size - 1)
 		{
-			board[row][col] = 0;
+			board[row][col] = 6;
 			col++;
 		}
 		row++;
 	}
+	ft_print_board(board, size);
+	ft_putstr("\n init board \n");
 	return (board);
 }
 
@@ -163,10 +112,10 @@ void	ft_print_board(int **board, int size)
 	int	col;
 
 	row = 0;
-	while (row <= size)
+	while (row <= size - 1)
 	{
 		col = 0;
-		while (col <= size)
+		while (col <= size - 1)
 		{
 			ft_putnbr(board[row][col]);
 			ft_putchar(' ');
@@ -177,70 +126,16 @@ void	ft_print_board(int **board, int size)
 	}
 }
 
-int	ft_try_number(int **board, int number, int row, int col)
-{
-	if (ft_is_valid(board, number, row, col))
-	{
-		board[row][col] = number;
-		if (ft_solve(board))
-		{
-			return (1);
-		}
-		else
-		{
-			board[row][col] = 0;
-		}
-	}
-	return (0);
-}
-
-int	ft_solve(int **board)
-{
-	int	row;
-	int	col;
-	int	number;
-
-	row = 1;
-	number = 1;
-	while (row <= 5)
-	{
-		col = 0;
-		while (col <= 5)
-		{
-			if (board[row][col] == 0)
-			{
-				while (number <= 4)
-				{
-					if (ft_try_number(board, number, row, col))
-						return (1);
-					number++;
-				}
-			}
-		col++;
-		}
-	row++;
-	}
-	return (1);
-}
-
 int	main(int ac, char **av)
 {
 	int		size;
 	int		**board;
 
 	size = ft_atoi(av[1]);
+	ft_putstr("\n atoi setup! \n");
 	board = ft_init_board(size);
+	ft_putstr("\n print board \n");
 	ft_print_board(board, size);
-/*
-	if (ft_solve(board))
-	{
-		ft_putstr("\n-------RESOLU-------\n");
-	}
-	else
-	{
-		ft_putstr("\n-----IMPOSSIBLE-----n");
-	}
-	ft_print_board(board);
-*/
+	ft_putstr("\n print board2 \n");
 	return (0);
 }

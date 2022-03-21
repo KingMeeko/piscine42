@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:52:21 by dantremb          #+#    #+#             */
-/*   Updated: 2022/03/19 00:48:53 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:22:10 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,19 @@ int ft_in_col(int **board, int number, int col)
 		}
 	}
 	return (1);
+}
+
+int	ft_is_valid(int **board, int number, int row, int col)
+{
+	int	vrow = ft_in_row(board, number, row);
+	int	vcol = ft_in_col(board, number, col);
+
+	if ((vrow + vcol) > 1)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
